@@ -6,18 +6,18 @@ import com.example.springgrudprovider.repository.TransactionRepository;
 import com.example.springgrudprovider.service.TransactionService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class TransactionServiceImpl implements TransactionService {
     
     private final TransactionRepository transactionRepository;
     @Override
     public PageInfo<Transaction> getAllTransactions(int page, int size, String filterName) {
         PageHelper.startPage(page,size);
-        return new PageInfo<Transaction>(transactionRepository.getAllTransactions(filterName));
+        return new PageInfo<>(transactionRepository.getAllTransactions(filterName));
     }
 
     @Override

@@ -6,17 +6,15 @@ import com.example.springgrudprovider.service.TransactionService;
 import com.example.springgrudprovider.utils.Response;
 import com.github.pagehelper.PageInfo;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/transaction")
+@RequiredArgsConstructor
 public class TransactionRestController {
     private final TransactionService transactionService;
-    @Autowired
-    TransactionRestController(TransactionService transactionService){
-        this.transactionService = transactionService;
-    }
+
 
     @GetMapping("/getAllTransactions")
     public Response<PageInfo<Transaction>> getAllTransactions(@RequestParam(defaultValue = "1") int page,@RequestParam(defaultValue = "5")int size,@RequestParam(defaultValue = "", required = false)String filterName){

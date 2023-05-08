@@ -1,11 +1,13 @@
 package com.example.springgrudprovider.repository.provider;
 
+
 import com.example.springgrudprovider.model.request.TransactionRequest;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.jdbc.SQL;
 
-public class TransactionProvider {
-    public static String getAllTransaction(String filterName){
+
+public class TransactionProvider{
+    public static String getAllTransactions(String filterName){
         return new SQL(){{
             SELECT("*");
             FROM("transaction_tb");
